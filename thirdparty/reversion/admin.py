@@ -21,7 +21,12 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.utils.html import mark_safe
 from django.utils.text import capfirst
 from django.utils.translation import ugettext as _
-from django.utils.encoding import force_text
+
+try:
+    from django.utils.encoding import force_text
+except ImportError:
+    from django.utils.encoding import force_unicode as force_text
+
 from django.utils.formats import localize
 
 from reversion.models import Revision, Version, has_int_pk, VERSION_ADD, VERSION_CHANGE, VERSION_DELETE

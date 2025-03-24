@@ -7,6 +7,8 @@ try:  # Django < 1.4
     from django.utils.encoding import force_unicode as force_text
 except ImportError:
     from django.utils.encoding import force_text
+
+
 from django.utils.functional import allow_lazy
 
 from crispy_forms.compatibility import text_type

@@ -10,7 +10,7 @@ import posixpath
 from datetime import date
 
 
-terminal_date = date(2016, 7, 1)
+terminal_date = date(2099, 7, 1)
 
 #Enable plaintext password and save it in person.UserPlainPassword
 ENABLE_PLAIN_PASSWORD = True

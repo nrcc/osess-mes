@@ -15,7 +15,10 @@ from django.db import models, DEFAULT_DB_ALIAS, connection
 from django.db.models import Q, Max
 from django.db.models.query import QuerySet
 from django.db.models.signals import post_save, pre_delete
-from django.utils.encoding import force_text
+try:
+    from django.utils.encoding import force_text
+except ImportError:
+    from django.utils.encoding import force_unicode as force_text
 
 from reversion.models import Revision, Version, VERSION_ADD, VERSION_CHANGE, VERSION_DELETE, has_int_pk, pre_revision_commit, post_revision_commit
 

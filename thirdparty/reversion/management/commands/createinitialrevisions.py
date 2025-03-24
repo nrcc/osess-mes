@@ -9,7 +9,10 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models, reset_queries
 from django.utils.importlib import import_module
 from django.utils.datastructures import SortedDict
-from django.utils.encoding import force_text
+try:
+    from django.utils.encoding import force_text
+except ImportError:
+    from django.utils.encoding import force_unicode as force_text
 
 from reversion import default_revision_manager
 from reversion.models import Version, has_int_pk

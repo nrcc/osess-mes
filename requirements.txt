@@ -1,0 +1,26 @@
+#idios http://dist.pinaxproject.com/dev/
+--extra-index-url=http://dist.pinaxproject.com/dev/
+--extra-index-url=http://dist.pinaxproject.com/alpha/
+--extra-index-url=http://dist.pinaxproject.com/fresh-start/
+
+Django==1.4.5
+django-announcements==0.1.2
+django-appconf==1.0.3
+django-compressor==1.1.2
+django-debug-toolbar==0.9.1
+django-extensions==0.6
+django-mptt==0.5.0
+django-openid==0.3a1
+django-pagination==1.0.7
+django-picklefield==0.3.0
+django-staticfiles==1.2.1
+django-timezones==0.2
+idios==0.2a1
+metron==0.1
+Pinax
+pinax-theme-bootstrap==2.0.1
+python-magic-bin==0.4.14
+pytz==2011n
+reportlab==3.2.0
+six==1.9.0
+xadmin==0.6.1

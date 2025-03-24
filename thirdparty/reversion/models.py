@@ -14,7 +14,31 @@ from django.db import models, IntegrityError
 from django.db.models.signals import pre_save, post_save
 from django.dispatch.dispatcher import Signal, _make_id
 from django.utils.translation import ugettext_lazy as _
-from django.utils.encoding import force_text, python_2_unicode_compatible
+#from django.utils.encoding import force_text, python_2_unicode_compatible
+
+
+try:
+    from django.utils.encoding import force_text
+except ImportError:
+    from django.utils.encoding import force_unicode as force_text
+try:
+    from django.utils.encoding import python_2_unicode_compatible
+except ImportError:
+    def python_2_unicode_compatible(klass):
+        """
+        A decorator that defines __unicode__ and __str__ methods under Python 2.
+        Under Python 3 it does nothing.
+
+        To support Python 2 and 3 with a single code base, define a __str__ method
+        returning text and apply this decorator to the class.
+        """
+        if '__str__' not in klass.__dict__:
+            raise ValueError("@python_2_unicode_compatible cannot be applied "
+                             "to %s because it doesn't define __str__()." %
+                             klass.__name__)
+        klass.__unicode__ = klass.__str__
+        klass.__str__ = lambda self: self.__unicode__().encode('utf-8')
+        return klass
 
 
 def safe_revert(versions):
